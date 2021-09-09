@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">weatherbot</string>
+    <string name="weather_teaser">Здесь могла быть ваша погода</string>
 </resources>
