@@ -60,7 +60,8 @@
                         app:layout_constraintBottom_toTopOf="@id/temperatureTextView"
                         android:paddingStart="10pt"
                         android:paddingEnd="10dp"
-                        android:paddingVertical="2pt"/>
+                        android:paddingVertical="2pt"
+                        android:layout_marginTop="10dp"/>
 
                     <TextView
                         android:id="@+id/temperatureTextView"
