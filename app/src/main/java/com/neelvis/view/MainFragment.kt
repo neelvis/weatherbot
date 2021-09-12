@@ -2,15 +2,17 @@ package com.neelvis.view
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import com.neelvis.R
 import com.neelvis.databinding.FragmentMainBinding
-import com.neelvis.model.Model
-import com.neelvis.viewmodel.MainViewModel
+import com.neelvis.model.Weather
+import com.neelvis.model.livedata.ApiEmptyResponse
+import com.neelvis.model.livedata.ApiErrorResponse
+import com.neelvis.model.livedata.ApiSuccessResponse
+import com.neelvis.viewmodel.MainFragmentViewModel
 
 class MainFragment : Fragment() {
 
@@ -18,7 +20,7 @@ class MainFragment : Fragment() {
         fun newInstance() = MainFragment()
     }
 
-    private lateinit var viewModel: MainViewModel
+    private lateinit var fragmentViewModel: MainFragmentViewModel
     private lateinit var viewBinder: FragmentMainBinding
 
     override fun onCreateView(
@@ -31,11 +33,18 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        fragmentViewModel = ViewModelProvider(this).get(MainFragmentViewModel::class.java)
         // TODO: Use the ViewModel
 
-        viewModel.weatherData.observe(viewLifecycleOwner, { weather ->
-            viewBinder.temperatureTextView.text = (weather?.temperature?.toInt() ?: -100).toString()
+        fragmentViewModel.weatherLiveData.observe(viewLifecycleOwner, { response ->
+            when (response) {
+                is ApiSuccessResponse<Weather> -> {
+                    viewBinder.temperatureTextView.text = response.body.temperature
+                    viewBinder.descriptionTextView.text = response.body.name
+                }
+                is ApiEmptyResponse<Weather> -> Log.d("MAIN FRG", "Empty response")
+                is ApiErrorResponse<Weather> -> Log.d("MAIN FRG", "Error: ${response.errorMessage}")
+            }
         })
 
     }
