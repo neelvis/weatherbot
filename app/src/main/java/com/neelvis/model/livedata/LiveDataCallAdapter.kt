@@ -7,7 +7,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.lang.reflect.Type
 
-class LiveDataCallAdapter <R>(private val repsonseType: Type): CallAdapter<R, LiveData<ApiResponse<R>>> {
+class LiveDataCallAdapter <R>(private val responseType: Type): CallAdapter<R, LiveData<ApiResponse<R>>> {
     override fun adapt(call: Call<R>): LiveData<ApiResponse<R>> = object : LiveData<ApiResponse<R>>() {
         private var isSucceeded = false
 
@@ -41,5 +41,5 @@ class LiveDataCallAdapter <R>(private val repsonseType: Type): CallAdapter<R, Li
         }
     }
 
-    override fun responseType(): Type = responseType()
+    override fun responseType(): Type = responseType
 }

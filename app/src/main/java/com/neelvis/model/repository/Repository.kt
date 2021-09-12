@@ -19,20 +19,4 @@ object Repository {
 
     fun getWeatherApiCall(requestData: RequestData): LiveData<ApiResponse<Weather>> =
         apiInterface.getWeatherByGps(requestData.latitude, requestData.longitude, requestData.apiKey)
-
-
-//        weatherApiCall.enqueue(object : Callback<Weather> {
-//            override fun onFailure(call: Call<Weather>, t: Throwable) {
-//                Log.d("APICALL", "Weather request failure")
-//            }
-//
-//            override fun onResponse(call: Call<Weather>, response: Response<Weather>) {
-//                if (response.isSuccessful) {
-//                    weatherLiveData.value = response.body()!!
-//                }
-//            }
-//        })
-
-//        return weatherLiveData
-
 }

@@ -1,12 +1,32 @@
 package com.neelvis.model
 
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
+import java.io.FileDescriptor
 
+data class Main(
+    @Json(name = "temp")
+    val currentTemperature: Double = 0.0,
+    @Json(name = "feels_like")
+    val temperatureFeels: Double = 0.0,
+    @Json(name = "temp_min")
+    val temperatureTodayMin: Double = 0.0,
+    @Json(name = "temp_max")
+    val temperatureTodayMax: Double = 0.0,
+    val pressure: Int = 1,
+    val humidity: Int = 146
+)
+
+data class WeatherInfo(
+    val description: String = "Apocalypse"
+)
+
+@JsonClass (generateAdapter = true)
 data class Weather(
-    @Json (name = "name")
     val name: String = "Unknown City",
-    @Json (name = "main.temp")
-    val temperature: String = "-273.15"
+    val main: Main = Main(),
+    @Json(name = "weather")
+    val info: Array<WeatherInfo> = arrayOf<WeatherInfo>()
 )
 
 //    {"coord":{"lon":-122.084,"lat":37.422},

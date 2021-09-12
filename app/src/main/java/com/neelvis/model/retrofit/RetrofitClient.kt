@@ -9,7 +9,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object RetrofitClient {
     private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
 
-    private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
+    private val moshi = Moshi
+        .Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
 
     private val retrofitClient: Retrofit by lazy {
         Retrofit.Builder()

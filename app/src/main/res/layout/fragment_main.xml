@@ -48,56 +48,68 @@
                 android:orientation="horizontal"
                 app:layout_constraintTop_toTopOf="parent">
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent">
-                        <TextView
-                            android:id="@+id/dateTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2021/09/03 (Again)"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            app:layout_constraintBottom_toTopOf="@id/temperatureTextView"
-                            android:paddingStart="10pt"
-                            android:paddingEnd="10dp"
-                            android:paddingVertical="2pt"/>
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/dateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2021/09/03 (Again)"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/temperatureTextView"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
 
-                        <TextView
-                            android:id="@+id/temperatureTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="36° C"
-                            android:textSize="20pt"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/dateTextView"
-                            app:layout_constraintBottom_toTopOf="@id/tLimitsTextView"
-                            android:paddingStart="10pt"
-                            android:paddingEnd="10dp"
-                            android:paddingVertical="2pt"/>
+                    <TextView
+                        android:id="@+id/temperatureTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="36° C"
+                        android:textSize="20pt"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dateTextView"
+                        app:layout_constraintBottom_toTopOf="@id/tLimitsTextView"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
 
-                        <TextView
-                            android:id="@+id/tLimitsTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Highest 56° C / Lowest -80° C"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/temperatureTextView"
-                            app:layout_constraintBottom_toTopOf="@id/descriptionTextView"
-                            android:paddingStart="10pt"
-                            android:paddingEnd="10dp"
-                            android:paddingVertical="2pt"/>
+                    <TextView
+                        android:id="@+id/tLimitsTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Highest 56° C / Lowest -80° C"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/temperatureTextView"
+                        app:layout_constraintBottom_toTopOf="@id/descriptionTextView"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
 
-                        <TextView
-                            android:id="@+id/descriptionTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Tornado"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/tLimitsTextView"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            android:paddingStart="10pt"
-                            android:paddingEnd="10dp"
-                            android:paddingVertical="2pt"/>
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tornado"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tLimitsTextView"
+                        app:layout_constraintBottom_toTopOf="@id/ortTextView"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
+
+                    <TextView
+                        android:id="@+id/ortTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Moscow"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
