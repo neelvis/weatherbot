@@ -1,12 +1,10 @@
-package com.neelvis.model
+package com.neelvis.model.data
 
-import com.neelvis.model.repository.Repository.API_KEY
-import com.neelvis.view.MainActivity
+import com.neelvis.model.repository.API_KEY
 
 data class RequestData(val latitude: String = "0.0", val longitude: String = "0.0", val apiKey: String = API_KEY)
-data class LocationCoords(val latitude: String, val longitude: String)
 
-class Model() {
+class Location() {
 
     fun getLocationData(): RequestData {
 

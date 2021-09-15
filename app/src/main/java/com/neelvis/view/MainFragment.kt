@@ -16,7 +16,7 @@ import android.widget.ImageView
 import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import com.neelvis.R
 import com.neelvis.databinding.FragmentMainBinding
-import com.neelvis.model.Weather
+import com.neelvis.model.data.Weather
 import com.neelvis.model.livedata.ApiEmptyResponse
 import com.neelvis.model.livedata.ApiErrorResponse
 import com.neelvis.model.livedata.ApiSuccessResponse

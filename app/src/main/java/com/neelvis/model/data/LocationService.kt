@@ -1,6 +1,5 @@
-package com.neelvis.model
+package com.neelvis.model.data
 
-import android.content.Context
 import android.location.Location
 import android.location.LocationManager
 

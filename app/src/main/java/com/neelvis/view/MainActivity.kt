@@ -1,17 +1,14 @@
 package com.neelvis.view
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
-import android.location.Criteria
 import android.location.LocationManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.neelvis.R
-import com.neelvis.model.LocationService
-import com.neelvis.model.Model
+import com.neelvis.model.data.LocationService
 
 
 class MainActivity : AppCompatActivity() {
