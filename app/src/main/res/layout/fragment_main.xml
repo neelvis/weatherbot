@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <!--marker 1-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"
+        android:text="Home | Na-yeong Lee"
+        android:paddingVertical="5dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"/>
+
+<!--marker 2 + 3 + 4-->
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2"
+    android:orientation="horizontal">
+
+    <!--marker 2 + 3-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!--marker 2 (My fragment)-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/fragment_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ddffff"
+            tools:context=".view.MainFragment"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/marker3">
+
+            <LinearLayout
+                android:id="@+id/weatherInfoLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/dateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2021/09/03 (Again)"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@id/temperatureTextView"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:id="@+id/temperatureTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="36° C"
+                        android:textSize="20pt"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/dateTextView"
+                        app:layout_constraintBottom_toTopOf="@id/tLimitsTextView"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
+
+                    <TextView
+                        android:id="@+id/tLimitsTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Highest 56° C / Lowest -80° C"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/temperatureTextView"
+                        app:layout_constraintBottom_toTopOf="@id/descriptionTextView"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
+
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tornado"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tLimitsTextView"
+                        app:layout_constraintBottom_toTopOf="@id/ortTextView"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
+
+                    <TextView
+                        android:id="@+id/ortTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Moscow"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/descriptionTextView"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:paddingStart="10pt"
+                        android:paddingEnd="10dp"
+                        android:paddingVertical="2pt"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/picsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:layout_constraintTop_toBottomOf="@id/weatherInfoLayout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--marker 3-->
+        <TextView
+            android:id="@+id/marker3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Some hardcoded text about Hair and Scalp"
+            android:paddingVertical="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_main"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--marker 4-->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="A place for the right fragment"
+            android:paddingVertical="5dp"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"/>
+    </LinearLayout>
+</LinearLayout>
