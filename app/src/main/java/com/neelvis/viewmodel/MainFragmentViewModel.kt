@@ -4,13 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.neelvis.model.data.Location
+import com.neelvis.model.data.LocationService
 import com.neelvis.model.data.Weather
 import com.neelvis.model.livedata.ApiResponse
 import com.neelvis.model.repository.Repository
 import kotlinx.coroutines.*
 
 class MainFragmentViewModel : ViewModel() {
-    private val model = Location()
+    private val location = Location()
     private val repository = Repository()
 
     var weatherLiveData: LiveData<ApiResponse<Weather>> = askCurrentWeather()
@@ -24,5 +25,5 @@ class MainFragmentViewModel : ViewModel() {
         }
     }
 
-    private fun askCurrentWeather() = repository.getWeatherApiCall(model.getLocationData())
+    private fun askCurrentWeather() = repository.getWeatherApiCall(LocationService.getLocationRequestData())
 }
