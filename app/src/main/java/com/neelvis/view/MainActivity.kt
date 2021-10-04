@@ -1,12 +1,15 @@
 package com.neelvis.view
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.LocationManager
 import android.os.Bundle
+import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.gms.location.LocationServices
 import com.neelvis.R
 import com.neelvis.model.data.LocationService
 
@@ -45,34 +48,39 @@ class MainActivity : AppCompatActivity() {
         }
         LocationService.locationManager =
             ContextCompat.getSystemService(this, LocationManager::class.java)!!
+
+        try {
+//            locationManager?.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+            LocationServices
+                .getFusedLocationProviderClient(LocationService.appContext)
+                .lastLocation.addOnSuccessListener {
+                    LocationService.currentLocation = it
+                }
+        } catch (e: SecurityException) {
+            //TODO: Handle exception
+        }
+
     }
 
     override fun onStart() {
         super.onStart()
+
         checkLocationPermission()
+
         if (LocationService.locationManager == null) {
             LocationService.locationManager =
                 ContextCompat.getSystemService(this, LocationManager::class.java)!!
         }
+        val isGpsEnabled = LocationService.locationManager!!.isProviderEnabled(LocationManager.GPS_PROVIDER)
+        if (!isGpsEnabled) {
+            startActivity(
+                Intent(
+                    Settings.ACTION_LOCATION_SOURCE_SETTINGS
+                )
+            )
+            //TODO: show call to action to enable gps
+        }
+
+
     }
 }
-
-//fun onStart() {
-//    super.onStart()
-//
-//    // This verification should be done during onStart() because the system calls
-//    // this method when the user returns to the activity, which ensures the desired
-//    // location provider is enabled each time the activity resumes from the stopped state.
-//    val locationManager = getSystemService<Any>(Context.LOCATION_SERVICE) as LocationManager?
-//    val gpsEnabled = locationManager!!.isProviderEnabled(LocationManager.GPS_PROVIDER)
-//    if (!gpsEnabled) {
-//        // Build an alert dialog here that requests that the user enable
-//        // the location services, then when the user clicks the "OK" button,
-//        // call enableLocationSettings()
-//    }
-//}
-//
-//private fun enableLocationSettings() {
-//    val settingsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
-//    startActivity(settingsIntent)
-//}
