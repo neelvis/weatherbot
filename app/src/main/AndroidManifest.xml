@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
 
     <application
         android:name="com.neelvis.WeatherBotApplication"
@@ -25,7 +26,7 @@
             </intent-filter>
         </activity>
         <service
-            android:name="com.neelvis.model.data.LocationService"
+            android:name="com.neelvis.model.data.LocationUpdateFgService"
             android:foregroundServiceType="location">
     </service>
     </application>

@@ -3,4 +3,8 @@
     <string name="date">2021/09/03</string>
     <string name="temperature">%1$d°C</string>
     <string name="temperature_limits">Highest %1$d°C, lowest %2$d°C</string>
+    <string name="location_permission_denied">Can\'t show weather properly because of denied permission</string>
+    <string name="OK">OK</string>
+    <string name="location_permission_required">This application needs an access to this device\'s location</string>
+    <string name="location_update_service_name">Location update foreground service</string>
 </resources>

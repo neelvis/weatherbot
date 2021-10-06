@@ -9,5 +9,9 @@ import retrofit2.http.Query
 
 interface ApiInterface {
     @GET("weather?")
-    fun getWeatherByGps(@Query("lat") latitude: String, @Query("lon") longitude: String, @Query("appid") apiKey: String): LiveData<ApiResponse<Weather>>
+    fun getWeatherByGps(
+        @Query("lat") latitude: String,
+        @Query("lon") longitude: String,
+        @Query("appid") apiKey: String
+    ): LiveData<ApiResponse<Weather>>
 }
